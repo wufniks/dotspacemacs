@@ -62,13 +62,27 @@ Each entry is either:
   (use-package google-c-style
     :config
     (add-hook 'c-mode-common-hook 'google-set-c-style)
-    (add-hook 'c++-mode-hook
-              (lambda ()
-                ;; set appearance of a tab that is represented by 4 spaces
-                (setq tab-width 4)
-                ;; use space to indent by default
-                (setq-default indent-tabs-mode nil)
-                (setq c-basic-offset 4)))
-    ))
+    (c-add-style "mi-team"
+                 '("google"
+                   (c-basic-offset . 4)     ; Guessed value
+                   (c-offsets-alist
+                    (access-label . 0)      ; Guessed value
+                    (block-close . 0)       ; Guessed value
+                    (class-close . 0)       ; Guessed value
+                    (defun-block-intro . +) ; Guessed value
+                    (inclass . +)           ; Guessed value
+                    (inline-close . 0)      ; Guessed value
+                    (innamespace . 0)       ; Guessed value
+                    (member-init-intro . +)     ; Guessed value
+                    (namespace-close . 0)   ; Guessed value
+                    (statement . 0)         ; Guessed value
+                    (statement-block-intro . +) ; Guessed value
+                    (topmost-intro . +)         ; Guessed value
+                    (topmost-intro-cont . 0)))) ; Guessed value
+
+    (defun hshin-c++-mode-hook ()
+      (c-set-style "mi-team"))        ; use my-style defined above
+
+    (add-hook 'c++-mode-hook 'hshin-c++-mode-hook)))
 
 ;;; packages.el ends here
