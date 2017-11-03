@@ -31,6 +31,9 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
      '(
+     docker
+     yaml
+     javascript
      python
      hshin
      shell
@@ -48,7 +51,8 @@ values."
      org
      (shell :variables
             shell-default-height 30
-            shell-default-position 'bottom)
+            shell-default-position 'bottom
+            shell-default-term-shell "/bin/zsh")
      ;; spell-checking
      ;; syntax-checking
      ;; version-control

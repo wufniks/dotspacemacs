@@ -66,13 +66,22 @@ Each entry is either:
                  '("google"
                    (c-basic-offset . 4)     ; Guessed value
                    (c-offsets-alist
+                    (access-label . 0)      ; Guessed value
                     (block-close . 0)       ; Guessed value
                     (catch-clause . 0)      ; Guessed value
+                    (class-close . 0)       ; Guessed value
                     (defun-block-intro . +) ; Guessed value
                     (defun-close . 0)       ; Guessed value
                     (statement . 0)         ; Guessed value
                     (statement-block-intro . +) ; Guessed value
                     (topmost-intro . 0)         ; Guessed value
+                    (topmost-intro-cont . 0) ; Guessed value
+                    (inclass . +)           ; Guessed value
+                    (inline-close . 0)      ; Guessed value
+                    (innamespace . 0)       ; Guessed value
+                    (member-init-cont . 0)  ; Guessed value
+                    (member-init-intro . +) ; Guessed value
+                    (namespace-close . 0)   ; Guessed value
                     (annotation-top-cont . 0)
                     (annotation-var-cont . +)
                     (arglist-close . c-lineup-close-paren)
@@ -137,6 +146,7 @@ Each entry is either:
     (defun hshin-c++-mode-hook ()
       (c-set-style "mi-team"))        ; use my-style defined above
 
-    (add-hook 'c++-mode-hook 'hshin-c++-mode-hook)))
+    (add-hook 'c++-mode-hook 'hshin-c++-mode-hook)
+    (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))))
 
 ;;; packages.el ends here
