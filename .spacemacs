@@ -61,7 +61,9 @@ values."
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
-     c-c++
+     (c-c++ :variables
+            c-c++-enable-clang-support t
+            c-c++-default-mode-for-headers 'c++-mode)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -329,6 +331,10 @@ you should place your code here."
           mac-command-modifier 'super
           mac-option-modifier 'meta))
   (xterm-mouse-mode -1)
+  ;; Bind clang-format-buffer to tab on the c++-mode only:
+  (add-hook 'c++-mode-hook 'clang-format-bindings)
+  (defun clang-format-bindings ()
+    (define-key c++-mode-map [tab] 'clang-format-buffer))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
