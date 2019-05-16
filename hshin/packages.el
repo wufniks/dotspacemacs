@@ -135,7 +135,7 @@ Each entry is either:
                                        [0])
                     (statement-case-intro . +)
                     (statement-case-open . +)
-                    (statement-cont nil nil ++)
+                    (statement-cont nil nil +)
                     (stream-op . c-lineup-streamop)
                     (string . -1000)
                     (substatement . +)
